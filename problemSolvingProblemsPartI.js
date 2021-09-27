@@ -9,19 +9,16 @@
 let str = 'Hello'
 
 //Step 2: reverse the string 'Hello' so it will print out as 'olleh'
-//creating a function to reverse the string. Splits string, reverses the order, then puts them back together in reverse.
-// H e l l o
-// 1 2 3 4 5
-// o l l e H
-function reversestr(string){
-    let splitString = string.split('');
-    let reverseString = splitString.reverse('');
-    let joinString = reverseString.join('')
-    return joinString;
+function reverseAWord(string){
+    let wordReversed = '';
+    for (let i = string.length - 1; i >= 0; i--){
+        wordReversed += string[i];
+    }
+    return wordReversed
 }
 
 //Step 3: print to console. result = 'olleh'
-console.log(reversestr(str));
+console.log(reverseAWord(str));
 
 
 
@@ -54,4 +51,42 @@ console.log(capitalizeFirstLetterOfEachWord(capString))
 //a. For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
 
 //Step 1: Create a string
-let stringNeedsCompress = 'hhhheeeelllloooohhheeelllooo'
+let stringNeedsCompress = 'hhhheeeeeeeellllllooooo'
+let result = ''; //this will be the compressed string
+let counter = 0; //this will be used as our counter
+
+for (let i = 0; i < stringNeedsCompress.length; i++){ //as long as 'i' is less than the length of the string, it will continue looping and adding 'i' by 1 each loop.
+    counter++
+    if (stringNeedsCompress[i] != stringNeedsCompress[i + 1]){      //conditional statement. if 'i' starts out at 0 in the string and is NOT equal to the 'i' + 1 then the counter will increment each loop by 1.
+        result += stringNeedsCompress[i] + counter; // adding the index of the string to the counter and saving it to the variable called result
+        counter = 0;
+    }
+}
+console.log(result);
+
+
+
+
+//BONUS CHALLENGE: Palindrome
+//a. A word, phrase, or sequence that reads the same backward as forward i.e. madam
+//b. Write code that takes a user input and checks to see if it is a Palindrome and reports the result
+//Step 1: Lets create a variable and prompt the user to enter a palindrome.
+let word = prompt('Please enter a word to check if its a palindrome: ');
+
+//Step 2: Now we need to check if the word that the user put in is actually a palindrome. We will need to iterate through the entire length of the string
+function palindromeCheck(pali){
+    let paliWord = '';
+    for (let i = pali.length - 1; i >= 0; i--){ //This line of code will start at the last letter of the word from the user and work its way to the first letter
+        paliWord += pali[i]; //this is saving the word letter by letter into 'paliWord'
+    }
+    if (paliWord === pali){
+        alert(pali + ' Yes! That is a palindrome!')
+    }
+    else if(paliWord != pali){
+        console.log('That is not a palindrome')
+    }
+    
+    return paliWord
+}
+
+console.log(palindromeCheck(word))
