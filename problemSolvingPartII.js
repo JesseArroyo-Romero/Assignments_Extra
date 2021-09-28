@@ -68,3 +68,22 @@ function isItPrime(){
 console.log(isItPrime())                                //calls the function.
 
 
+
+
+//ProblemThree FIBONACCI
+//a. A series of numbers in which each number (Fibonacci number) is the sum of the two preceding numbers. The simplest is the series 1, 1, 2, 3, 5, 8, etc.
+//b. Write a method that does the Fibonacci sequence starting at 1
+//c. HARDER VERSION: Write a method that does the Fibonacci sequence starting at a number that a user inputs
+//math formula for FIBONACCI:   Fn - 1 + Fn - 2
+function fibonacciNum(num){
+    let number1 = 0;
+    let number2 = 1;
+    let sum;
+    for (let i = 0; i < num; i++){
+        sum = number1 + number2;
+        number1 = number2;
+        number2 = sum;
+    }
+    return number2;
+}
+console.log(fibonacciNum(20))
