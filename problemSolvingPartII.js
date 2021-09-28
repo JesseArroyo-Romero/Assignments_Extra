@@ -41,3 +41,30 @@ console.log(isItAHappyNumber(number));
 
 
 
+
+//ProblemTwo PRIME NUMBERS
+//a. A prime number is a number that is only divisible by one and itself.
+//b. Write a method that prints out all prime numbers between 1 and 100 
+
+//Creating Function
+function isItPrime(){
+    let lowestNum = parseInt(prompt('Enter 1: '));      //prompts user to enter a number as a starting point and turns it from a string to an integer.
+    let highestNum = parseInt(prompt('Enter 100: '));   //prompts user to enter a number as an end point and turns it from a string to an integer.
+
+    for (let i = lowestNum; i <= highestNum; i++){      //loops through the numbers starting at the number the user submitted.
+        let flag = 0;                                   //flag is set to be our place holder and condition for my IF statement further down.
+
+        for (let h = 2; h < i; h++){                    //loops through the number.
+            if (i % h == 0) {                           //if the number is divisible by h(2) with a remainder of 0 while h is less than the number(i) then it will set the flag to 1 and move on to the next number since it is NOT prime.
+                flag = 1;                               
+                break;
+            }
+        }
+        if (i > 1 && flag == 0){                        //if the number(i) is less than 1 AND flag is eqaul to 0 then it will print the number which is therefore prime.
+            console.log(i)
+        }
+    }
+}
+console.log(isItPrime())                                //calls the function.
+
+
